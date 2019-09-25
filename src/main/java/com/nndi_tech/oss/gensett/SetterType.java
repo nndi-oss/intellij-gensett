@@ -1,4 +1,4 @@
-package com.nndi_tech.oss.justsett;
+package com.nndi_tech.oss.gensett;
 
 public enum SetterType {
     METHOD,

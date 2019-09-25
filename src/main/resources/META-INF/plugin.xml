@@ -1,11 +1,10 @@
 <idea-plugin>
-    <id>com.nndi-tech.oss.intellij-just-sett</id>
-    <name>Just Sett</name>
+    <id>com.nndi-tech.oss.intellij-gensett</id>
+    <name>Gensett</name>
     <vendor email="hello@nndi-tech.com" url="https://nndi-tech.com">NNDI</vendor>
 
     <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
+    Expand shorthand to setter method calls or assignment statements
     ]]></description>
 
     <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
@@ -20,8 +19,8 @@
 
     <actions>
         <!-- Add your actions here -->
-        <action id="com.nndi_tech.oss.justsett.SetterWriterAction" class="com.nndi_tech.oss.justsett.SetterWriterAction"
-                text="Just Sett" description="Generate Setter statements (not methods!)">
+        <action id="com.nndi_tech.oss.gensett.SetterWriterAction" class="com.nndi_tech.oss.gensett.SetterWriterAction"
+                text="Generate Setter calls/assignments" description="Generate Setter statements (not methods!)">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SEMICOLON"/>
         </action>

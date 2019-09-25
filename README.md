@@ -1,4 +1,4 @@
-Just Sett Plugin for IntelliJ IDEA 
+Gensett Plugin for IntelliJ IDEA 
 ===
 
 If you sometimes find yourself writing (not implementing!) lots of setter method calls and 
@@ -28,7 +28,7 @@ installed.
 > This plugin is a Work In Progress, and a stable version has not been published yet,
 > it's quality is questionable but it works :)
 
-Get the alpha jar [here](https://github.com/nndi-oss/intellij-just-sett/releases)
+Get the alpha jar [here](https://github.com/nndi-oss/intellij-gensett/releases)
 
 ## The Shorthand
 

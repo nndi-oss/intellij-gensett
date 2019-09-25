@@ -1,4 +1,4 @@
-package com.nndi_tech.oss.justsett;
+package com.nndi_tech.oss.gensett;
 
 import java.io.IOException;
 import java.util.Objects;
