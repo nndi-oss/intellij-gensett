@@ -2,7 +2,7 @@ Just Sett Plugin for IntelliJ IDEA
 ===
 
 If you sometimes find yourself writing (not implementing!) lots of setter method calls and 
-assignment statements and find it boring and time consuming this IDEA plugin may just be for you!
+assignment statements and find it boring and time consuming, this IntelliJ IDEA plugin may be just for you!
 
 ## What does it do?
 
@@ -25,8 +25,10 @@ Trigger it with *Ctrl + Alt + ;* or `Generate > Just Sett` when the plugin is
 installed.
 
 > *NOTE:* 
-> This plugin is a Work In Progress, and a stable version has not been published yet.
-> However, you can build it with Gradle to test it out.
+> This plugin is a Work In Progress, and a stable version has not been published yet,
+> it's quality is questionable but it works :)
+
+Get the alpha jar [here](https://github.com/nndi-oss/intellij-just-sett/releases)
 
 ## The Shorthand
 
