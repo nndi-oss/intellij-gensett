@@ -76,17 +76,23 @@ public class Main {
         // v0.3
         // Set directly on fields with require non null
         // setf:person:firstName!, lastName!
-        // Set directly on fields with require non null
         person.firstName = Objects.requireNonNull(/* TODO: set value here */, "firstName");
         person.lastName = Objects.requireNonNull(/* TODO: set value here */, "lastName");
         
         // v0.4
         // Set directly on fields with custom method
         // setf:person:middleName*checkNotEmpty
-        // Set directly on fields with custom method 
         person.middleName = checkNotEmpty(/* TODO: set value here */);
 
-        // v0.5 
+        // 0.5 When it's smarter, it will know the fields of the class and be
+        // able to set them all using *, also enable exclusions using !<field>
+        // person:*
+        // person:*,!lastName
+
+        // 0.6? Set with values
+        // person:firstName="Zikani",lastName="John",what="Jaja"
+
+        // v0.7 
         // Set on a builder
         // setb:person:firstName,lastName,middleName
         person = new Person.Builder()
