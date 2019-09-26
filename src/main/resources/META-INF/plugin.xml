@@ -20,7 +20,7 @@
     <actions>
         <!-- Add your actions here -->
         <action id="com.nndi_tech.oss.gensett.SetterWriterAction" class="com.nndi_tech.oss.gensett.SetterWriterAction"
-                text="Gensett: Setters/assignments" description="Generate Setter statements (not methods!)">
+                text="Gensett: Setters/assignments" description="Generate Setter calls or assignment statements">
             <add-to-group group-id="GenerateGroup" anchor="first"/>
             <keyboard-shortcut keymap="$default" first-keystroke="ctrl alt SEMICOLON"/>
         </action>
