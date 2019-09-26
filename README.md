@@ -13,24 +13,22 @@ For example:
 Person person = new Person();
 // set:person:firstName,lastName 
 // ^ press `Ctrl + Alt + ;` on the line above to get the output below _
-person.setFirstName(/* TODO: set value here */);
-person.setLastName(/* TODO: set value here */);
+person.setFirstName(/* TODO: set it! */);
+person.setLastName(/* TODO: set it! */);
 
 // setf:person:age,otherThing
-person.age = /* TODO: set value here */;
-person.otherThing = /* TODO: set value here */;
+person.age = /* TODO: set it! */;
+person.otherThing = /* TODO: set it! */;
 ```
 
 ## Installation
 
-Get the alpha jar [here](https://github.com/nndi-oss/intellij-gensett/releases)
+Download the JAR [here](https://github.com/nndi-oss/intellij-gensett/releases).
+Install it by going to the `Settings > Plugins > Install Plugin from Disk...`
 
-> *NOTE:* 
-> This plugin is a Work In Progress, and a stable version has not been published yet,
-> it's quality is questionable but it works :)
+## USAGE
 
-
-## The Shorthand
+### The Shorthand
 
 The shorthand is written as a comment with the object instance name and the fields
 you want the setter/assignment statements generated for.
@@ -39,28 +37,32 @@ you want the setter/assignment statements generated for.
 * `// set:<obj>:<fields>` - Expands to Setter method calls
 * `// setf:<obj>:<fields>` - Expands to assignment statements on an object 
 
-## Examples
-
 ```java
 public class Main {
     public static void main(String... args) {
         Person person = new Person();
 
         // set:person:firstName
-        person.setFirstName(/* TODO: set value here */);
+        person.setFirstName(/* TODO: set it! */);
         
         // person:lastName,middleName
-        person.setLastName(/* TODO: set value here */);
-        person.setMiddleName(/* TODO: set value here */);
+        person.setLastName(/* TODO: set it! */);
+        person.setMiddleName(/* TODO: set it! */);
                 
         // Assignment statements on fields
         // setf:person:firstName,lastName,middleName
-        person.firstName = /* TODO: set value here */;
-        person.lastName = /* TODO: set value here */;
-        person.middleName = /* TODO: set value here */;
+        person.firstName = /* TODO: set it! */;
+        person.lastName = /* TODO: set it! */;
+        person.middleName = /* TODO: set it! */;
 
-        // Within an IntelliJ IDEA editor, just press `Ctrl + Alt + ;` 
-        // on the line with the expression 
+        // Set directly on fields with require non null
+        // setf:person:firstName!, lastName!
+        person.firstName = Objects.requireNonNull(/* TODO: set it! */, "firstName");
+        person.lastName = Objects.requireNonNull(/* TODO: set it! */, "lastName");
+        
+        // Set directly on fields with custom method
+        // setf:person:middleName*checkNotEmpty
+        person.middleName = checkNotEmpty(/* TODO: set it! */);
     }
 }
 ```
@@ -70,37 +72,40 @@ public class Main {
 This stuff will be possible in the near future.
 
 ```java
-public class Main {
+public class Person {
+    private String firstName;
+    private String maidenName;
+    private String lastName;
+    
     public static void main(String... args) {
         Person person = new Person();
-        // v0.3
-        // Set directly on fields with require non null
-        // setf:person:firstName!, lastName!
-        person.firstName = Objects.requireNonNull(/* TODO: set value here */, "firstName");
-        person.lastName = Objects.requireNonNull(/* TODO: set value here */, "lastName");
+        // ** Set with values **
+        // person:firstName="Jane",lastName="Smith",maidenName="Doe"
+        person.firstName = "Jane";
+        person.lastName = "Smith";
+        person.maidenName = "Doe";
         
-        // v0.4
-        // Set directly on fields with custom method
-        // setf:person:middleName*checkNotEmpty
-        person.middleName = checkNotEmpty(/* TODO: set value here */);
-
-        // 0.5 When it's smarter, it will know the fields of the class and be
-        // able to set them all using *, also enable exclusions using !<field>
-        // person:*
-        // person:*,!lastName
-
-        // 0.6? Set with values
-        // person:firstName="Zikani",lastName="John",what="Jaja"
-
-        // v0.7 
-        // Set on a builder
-        // setb:person:firstName,lastName,middleName
+        // ** Set fields via Builder **
+        // setb:person:Person$Builder:firstName,lastName,middleName
         person = new Person.Builder()
-                .firstName(/* TODO: set value here */)
-                .lastName(/* TODO: set value here */)
-                .middleName(/* TODO: set value here */)
+                .firstName(/* TODO: set it! */)
+                .lastName(/* TODO: set it! */)
+                .maidenName(/* TODO: set it! */)
                 .build();
-
+        
+        // ** Field Inspection **
+        // When it's smarter, it will know the fields of the class and be
+        // able to set them all using `*`, 
+        // person:*
+        person.firstName = /* TODO: set it! */;
+        person.lastName = /* TODO: set it! */;
+        person.maidenName = /* TODO: set it! */;
+        
+        // ** Field Inspection with Exclusions **
+        // also enable exclusions using !<field>
+        // person:*,!lastName
+        person.firstName = /* TODO: set it! */;
+        person.maidenName = /* TODO: set it! */;
     }
 }
 ```
