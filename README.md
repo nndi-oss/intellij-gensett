@@ -1,34 +1,34 @@
 Gensett Plugin for IntelliJ IDEA 
 ===
 
-If you sometimes find yourself writing (not implementing!) lots of setter method calls and 
-assignment statements and find it boring and time consuming, this IntelliJ IDEA plugin may be just for you!
+This plugin expands shorthand for setter method calls or assignment statements,
+so you don't have to write them manually. 
 
-## What does it do?
-
-It expands shorthand for setter method calls or assignment statements, so you 
-don't have to write them manually.
+Within an IntelliJ IDEA editor, just press `Ctrl + Alt + ;`  on the line with the expression.
+It also adds a `Gensett: Setters/assignments` to the `Generate` menu when the plugin is installed.
 
 For example:
 
 ```java
 Person person = new Person();
-// set:person:firstName,age 
-
-// ^ press `Ctrl + Alt + ;` on the line above to get the output below ^
-
+// set:person:firstName,lastName 
+// ^ press `Ctrl + Alt + ;` on the line above to get the output below _
 person.setFirstName(/* TODO: set value here */);
-person.setAge(/* TODO: set value here */);
+person.setLastName(/* TODO: set value here */);
+
+// setf:person:age,otherThing
+person.age = /* TODO: set value here */;
+person.otherThing = /* TODO: set value here */;
 ```
 
-Trigger it with *Ctrl + Alt + ;* or `Generate > Just Sett` when the plugin is 
-installed.
+## Installation
+
+Get the alpha jar [here](https://github.com/nndi-oss/intellij-gensett/releases)
 
 > *NOTE:* 
 > This plugin is a Work In Progress, and a stable version has not been published yet,
 > it's quality is questionable but it works :)
 
-Get the alpha jar [here](https://github.com/nndi-oss/intellij-gensett/releases)
 
 ## The Shorthand
 
