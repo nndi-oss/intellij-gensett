@@ -112,12 +112,14 @@ public class Person {
 
 ## Current/Known limitations
 
-* Probably contains lots of bugs due to numerous edge cases that haven't been
-tested.
 * The plugin currently doesn't read/parse your Java classes, as a result:
     * the generated code is based on whatever you type. Watch out for typos :)
     * It does not actually know about your object instance or it's type.
 * Does not support multi-caret selections
+
+## LICENSE
+
+MIT
 
 ---
 
