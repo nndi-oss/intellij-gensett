@@ -46,7 +46,7 @@ public class SetterWriterAction extends AnAction {
             } catch(Exception ioe) {
                 Notification notification = new Notification(
                     "com.nndi-tech.oss.justsett",
-                    "Just Sett failed to generate your code :(",
+                    "Gensett failed to generate your code :(",
                     ioe.getMessage(),
                     NotificationType.ERROR
                 );
