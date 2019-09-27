@@ -21,6 +21,10 @@ person.age = /* TODO: set it! */;
 person.otherThing = /* TODO: set it! */;
 ```
 
+See it in action below
+
+![](./demo.gif)
+
 ## Installation
 
 Download the JAR [here](https://github.com/nndi-oss/intellij-gensett/releases).
