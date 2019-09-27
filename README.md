@@ -27,7 +27,9 @@ See it in action below
 
 ## Installation
 
-Download the JAR [here](https://github.com/nndi-oss/intellij-gensett/releases).
+Install the [plugin](https://plugins.jetbrains.com/plugin/13064-gensett) from the Plugin Marketplace; search for `Gensett`.
+
+Alternatively, you can download the JAR [here](https://github.com/nndi-oss/intellij-gensett/releases).
 Install it by going to the `Settings > Plugins > Install Plugin from Disk...`
 
 ## USAGE
