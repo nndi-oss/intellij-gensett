@@ -36,7 +36,7 @@ public class SetterWriter {
     }
 
     private void writeFromExpression(String sourceExpression, StringBuilder sb) throws IOException {
-        String expression = sourceExpression.replaceFirst("set[f|b]?:", "");
+        String expression = sourceExpression.replaceFirst("\\s?set[f|b]?:", "");
         String[] parts = expression.split(":");
         if (parts.length != 2) {
             throw new IOException("Invalid expression: " + expression);
@@ -155,7 +155,7 @@ public class SetterWriter {
 
     private static String normalizeExpr(String expr) {
         if (expr == null) return expr;
-        return expr.replaceFirst("//\\s+", "")
+        return expr.replaceFirst("//\\s?", "")
                 .replaceAll("\\s", "");
     }
 

@@ -5,6 +5,22 @@ import org.junit.Test;
 
 public class SetterWriterTest {
     @Test
+    public void testSetterOnSingleFieldWithoutSpaces() throws Exception {
+        String expr = "//set:person:firstName";
+        String expected = "person.setFirstName(/* TODO: set it! */);\n";
+
+        SetterWriter sw = new SetterWriter(expr);
+        Assert.assertEquals(expected, sw.generateCode());
+
+        expr = "//setf:person:firstName,lastName";
+        expected = "person.firstName = /* TODO: set it! */;\n" +
+                "person.lastName = /* TODO: set it! */;\n";
+
+        sw = new SetterWriter(expr);
+        Assert.assertEquals(expected, sw.generateCode());
+    }
+
+    @Test
     public void testSetterOnSingleField() throws Exception {
         String expr = "// set:person:firstName";
         String expected = "person.setFirstName(/* TODO: set it! */);\n";
