@@ -1,4 +1,4 @@
-package com.nndi_tech.oss.gensett;
+package cloud.nndi.oss.gensett;
 
 import org.junit.Assert;
 import org.junit.Test;
