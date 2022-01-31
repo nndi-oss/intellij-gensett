@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.nndi-tech.oss.intellij-gensett</id>
     <name>Gensett</name>
-    <vendor email="hello@nndi-tech.com" url="https://nndi-tech.com">NNDI</vendor>
+    <vendor email="zikani.nmwase@ymail.com" url="https://nndi.cloud">NNDI</vendor>
 
     <description><![CDATA[
     Expand shorthand to setter method calls or assignment statements
