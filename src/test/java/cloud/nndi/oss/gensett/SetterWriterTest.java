@@ -21,6 +21,22 @@ public class SetterWriterTest {
     }
 
     @Test
+    public void testSetterOnObjectWithOneLetter() throws Exception {
+        String expr = "//set:p:firstName";
+        String expected = "p.setFirstName(/* TODO: set it! */);\n";
+
+        SetterWriter sw = new SetterWriter(expr);
+        Assert.assertEquals(expected, sw.generateCode());
+
+        expr = "//setf:p:firstName,lastName";
+        expected = "p.firstName = /* TODO: set it! */;\n" +
+                "p.lastName = /* TODO: set it! */;\n";
+
+        sw = new SetterWriter(expr);
+        Assert.assertEquals(expected, sw.generateCode());
+    }
+
+    @Test
     public void testSetterOnSingleField() throws Exception {
         String expr = "// set:person:firstName";
         String expected = "person.setFirstName(/* TODO: set it! */);\n";

@@ -42,7 +42,10 @@ public class SetterWriter {
             throw new IOException("Invalid expression: " + expression);
         }
         String obj = parts[0];
-        if (! NAIVE_CLASS_NAME.matcher(obj).matches()) {
+
+        if (obj.length() != 1 && ! NAIVE_CLASS_NAME.matcher(obj).matches()) {
+            throw new IllegalArgumentException("Invalid name for the object instance: " + obj);
+        } else if (obj.length() == 1 && !Character.isLetter(obj.charAt(0))) {
             throw new IllegalArgumentException("Invalid name for the object instance: " + obj);
         }
 

@@ -45,7 +45,7 @@ public class SetterWriterAction extends AnAction {
                 document.replaceString(start, end, sw.generateCode());
             } catch(Exception ioe) {
                 Notification notification = new Notification(
-                    "com.nndi_tech.oss.gensett",
+                    "cloud.nndi.oss.gensett",
                     "Gensett failed to generate your code :(",
                     ioe.getMessage(),
                     NotificationType.ERROR
