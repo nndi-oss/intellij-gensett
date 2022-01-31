@@ -1,17 +1,26 @@
 plugins {
-    id 'org.jetbrains.intellij' version '0.4.10'
+    id "java"
+    id "org.jetbrains.intellij" version "1.3.0"
 }
 
-group 'com.nndi-tech.oss'
-version '0.1.0'
+group "com.nndi-tech.oss"
+version "0.2.0-SNAPSHOT"
+sourceCompatibility = 11
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version '2019.1'
-    type 'IC'
+    version = "2021.2.1"
+    type = "IC"
+    pluginName = "Gensett"
 }
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
 patchPluginXml {
-    changeNotes """
+    changeNotes = """
       Initial version.<br/>
       Type an expression like 
       // set:obj:fieldName[,fieldName2[,..,fieldNameN]] 
