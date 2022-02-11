@@ -85,31 +85,23 @@ public class Person {
     
     public static void main(String... args) {
         Person person = new Person();
-        // ** Set with values **
-        // person:firstName="Jane",lastName="Smith",maidenName="Doe"
-        person.firstName = "Jane";
-        person.lastName = "Smith";
-        person.maidenName = "Doe";
-        
-        // ** Set fields via Builder **
-        // setb:person:Person$Builder:firstName,lastName,middleName
-        person = new Person.Builder()
-                .firstName(/* TODO: set it! */)
-                .lastName(/* TODO: set it! */)
-                .maidenName(/* TODO: set it! */)
-                .build();
-        
         // ** Field Inspection **
         // When it's smarter, it will know the fields of the class and be
         // able to set them all using `*`, 
+        
         // person:*
+        person.setFirstName(/* TODO: set it! */);
+        person.setLastName(/* TODO: set it! */);
+        person.setMaidenName(/* TODO: set it! */);
+                
+        // setf:person:*
         person.firstName = /* TODO: set it! */;
         person.lastName = /* TODO: set it! */;
         person.maidenName = /* TODO: set it! */;
         
         // ** Field Inspection with Exclusions **
         // also enable exclusions using !<field>
-        // person:*,!lastName
+        // setf:person:*,!lastName
         person.firstName = /* TODO: set it! */;
         person.maidenName = /* TODO: set it! */;
     }
