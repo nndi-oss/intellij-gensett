@@ -7,20 +7,6 @@ so you don't have to write them manually.
 Within an IntelliJ IDEA editor, just press `Ctrl + Alt + ;`  on the line with the expression.
 It also adds a `Gensett: Setters/assignments` to the `Generate` menu when the plugin is installed.
 
-For example:
-
-```java
-Person person = new Person();
-// set:person:firstName,lastName 
-// ^ press `Ctrl + Alt + ;` on the line above to get the output below _
-person.setFirstName(/* TODO: set it! */);
-person.setLastName(/* TODO: set it! */);
-
-// setf:person:age,otherThing
-person.age = /* TODO: set it! */;
-person.otherThing = /* TODO: set it! */;
-```
-
 See it in action below
 
 ![](./demo.gif)
@@ -47,6 +33,15 @@ you want the setter/assignment statements generated for.
 public class Main {
     public static void main(String... args) {
         Person person = new Person();
+
+        // person:firstName,lastName 
+        // ^ press `Ctrl + Alt + ;` on the line above to get the output below _
+        person.setFirstName(/* TODO: set it! */);
+        person.setLastName(/* TODO: set it! */);
+
+        // setf:person:age,otherThing
+        person.age = /* TODO: set it! */;
+        person.otherThing = /* TODO: set it! */;
 
         // set:person:firstName
         person.setFirstName(/* TODO: set it! */);
@@ -110,7 +105,7 @@ public class Person {
 
 ## Current/Known limitations
 
-* The plugin currently doesn't read/parse your Java classes, as a result:
+* [See #1](https://github.com/nndi-oss/intellij-gensett/issues/1) The plugin currently doesn't read/parse your Java classes, as a result:
     * the generated code is based on whatever you type. Watch out for typos :)
     * It does not actually know about your object instance or it's type.
 * Does not support multi-caret selections
