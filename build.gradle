@@ -1,15 +1,15 @@
 plugins {
     id "java"
-    id "org.jetbrains.intellij" version "1.7.0"
+    id "org.jetbrains.intellij" version "1.16.0"
 }
 
 group "cloud.nndi.oss"
-version "0.6.0-2022.2"
-sourceCompatibility = 11
+version "0.7.0-2023.2"
+sourceCompatibility = 17
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = "2022.2.1"
+    version = "2023.2.3"
     type = "IC"
     pluginName = "Gensett"
     plugins = ['com.intellij.java']
