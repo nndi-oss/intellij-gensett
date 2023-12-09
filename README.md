@@ -4,7 +4,7 @@ Gensett Plugin for IntelliJ IDEA
 This plugin expands shorthand for setter method calls or assignment statements,
 so you don't have to write them manually. 
 
-Within an IntelliJ IDEA editor, just press `Ctrl + Alt + ;`  on the line with the expression.
+Within an IntelliJ IDEA editor, just press `Ctrl + Alt + ;` or `⌘ + ⌥ + ;`   on the line with the expression.
 It also adds a `Gensett: Setters/assignments` to the `Generate` menu when the plugin is installed.
 
 See it in action below
