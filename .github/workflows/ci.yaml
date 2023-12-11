@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+jobs:
+  verify:
+    name: Verify
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Run Unit tests
+        run: |
+          ./gradlew test
+
+      - name: Build the plugin using Gradle
+        run: ./gradlew buildPlugin
+
+      - name: Verify Plugin on IntelliJ Platforms
+        id: verify
+        uses: ChrisCarini/intellij-platform-plugin-verifier-action@latest
+        with:
+          ide-versions: |
+            ideaIC:2023.2
