@@ -21,6 +21,15 @@ public class SetterWriterTest {
     }
 
     @Test
+    public void testChainedSetters() throws Exception {
+        String expr = "//setc:p:firstName,lastName";
+        String expected = "p.setFirstName(/* TODO: set it! */).setLastName(/* TODO: set it! */);";
+
+        SetterWriter sw = new SetterWriter(expr);
+        Assert.assertEquals(expected, sw.generateCode());
+    }
+
+    @Test
     public void testSetterOnObjectWithOneLetter() throws Exception {
         String expr = "//set:p:firstName";
         String expected = "p.setFirstName(/* TODO: set it! */);\n";
