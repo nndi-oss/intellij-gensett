@@ -1,6 +1,6 @@
 plugins {
     id "java"
-    id "org.jetbrains.intellij" version "1.16.0"
+    id "org.jetbrains.intellij" version "1.16.1"
 }
 
 group "cloud.nndi.oss"
@@ -13,7 +13,6 @@ intellij {
     type = "IC"
     pluginName = "Gensett"
     plugins = ['com.intellij.java']
-    //localPath = "C:\\Program Files\\JetBrains\\IntelliJ IDEA Community Edition 2022.2.1"
 }
 
 repositories {

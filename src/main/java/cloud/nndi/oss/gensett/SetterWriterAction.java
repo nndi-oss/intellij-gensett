@@ -42,6 +42,7 @@ public class SetterWriterAction extends AnAction {
         WriteCommandAction.runWriteCommandAction(project, () -> {
             try {
                 SetterWriter sw = new SetterWriter(line);
+                
                 document.replaceString(start, end, sw.generateCode());
             } catch(Exception ioe) {
                 Notification notification = new Notification(

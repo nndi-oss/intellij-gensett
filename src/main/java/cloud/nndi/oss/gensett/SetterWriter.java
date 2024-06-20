@@ -32,11 +32,14 @@ public class SetterWriter {
        if(expression.contains("setf"))
            return SetterType.FIELD;
 
+       if(expression.contains("setc"))
+           return SetterType.CHAINED_FIELD;
+
        return SetterType.METHOD;
     }
 
     private void writeFromExpression(String sourceExpression, StringBuilder sb) throws IOException {
-        String expression = sourceExpression.replaceFirst("\\s?set[f|b]?:", "");
+        String expression = sourceExpression.replaceFirst("\\s?set[f|b|c]?:", "");
         String[] parts = expression.split(":");
         if (parts.length != 2) {
             throw new IOException("Invalid expression: " + expression);
@@ -54,7 +57,12 @@ public class SetterWriter {
         String[] fields = fieldStr.split(",");
 
         for (String fieldName: fields) {
-            sb.append(getTemplate(obj, fieldName)).append("\n");
+            sb.append(getTemplate(obj, fieldName));
+        }
+        if (this.setterType == SetterType.CHAINED_FIELD) {
+            sb.insert(0, obj+".");
+            sb.delete(sb.lastIndexOf("."), sb.length());
+            sb.append(";");
         }
     }
 
@@ -84,41 +92,46 @@ public class SetterWriter {
 
         if (hasRequireNonNull && this.setterType == SetterType.METHOD) {
             return String.format(
-                "%s.%s(Objects.requireNonNull(/* TODO: set it! */, \"%s\"));",
+                "%s.%s(Objects.requireNonNull(/* TODO: set it! */, \"%s\"));\n",
                 obj,
                 beanSetterName(fieldName),
                 fieldName
             );
         } else if (hasWrapperMethod && this.setterType == SetterType.METHOD) {
             return String.format(
-                "%s.%s(%s(/* TODO: set it! */));",
+                "%s.%s(%s(/* TODO: set it! */));\n",
                 obj,
                 beanSetterName(fieldName),
                 wrapWithMethod
             );
         } else if (hasRequireNonNull && this.setterType == SetterType.FIELD) {
             return String.format(
-                "%s.%s = Objects.requireNonNull(/* TODO: set it! */, \"%s\");",
+                "%s.%s = Objects.requireNonNull(/* TODO: set it! */, \"%s\");\n",
                 obj,
                 fieldName,
                 fieldName
             );
         } else if (hasWrapperMethod && this.setterType == SetterType.FIELD) {
             return String.format(
-                "%s.%s = %s(/* TODO: set it! */);",
+                "%s.%s = %s(/* TODO: set it! */);\n",
                 obj,
                 fieldName,
                 wrapWithMethod
             );
         } else if (this.setterType == SetterType.FIELD) {
             return String.format(
-                "%s.%s = /* TODO: set it! */;",
+                "%s.%s = /* TODO: set it! */;\n",
                 obj,
                 fieldName
             );
+        } else if (this.setterType == SetterType.CHAINED_FIELD){
+            return String.format(
+                "%s(/* TODO: set it! */).",
+                beanSetterName(fieldName)
+            );
         } else {
             return String.format(
-                "%s.%s(/* TODO: set it! */);",
+                "%s.%s(/* TODO: set it! */);\n",
                 obj,
                 beanSetterName(fieldName)
             );
